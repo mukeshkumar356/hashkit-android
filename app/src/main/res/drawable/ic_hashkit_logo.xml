@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- Outer rounded square (Instagram-style) -->
+    <path
+        android:fillColor="#E91E8C"
+        android:pathData="M20,0 L100,0 Q120,0 120,20 L120,100 Q120,120 100,120 L20,120 Q0,120 0,100 L0,20 Q0,0 20,0 Z" />
+
+    <!-- # symbol white -->
+    <!-- Vertical bars -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M42,30 L50,30 L44,90 L36,90 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M68,30 L76,30 L70,90 L62,90 Z" />
+    <!-- Horizontal bars -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M32,50 L90,50 L89,58 L31,58 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M28,68 L86,68 L85,76 L27,76 Z" />
+</vector>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Hidden WebView for JS interception (WebView fallback) -->
+    <WebView
+        android:id="@+id/hidden_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/scroll_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_home">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:paddingBottom="30dp">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/bg_toolbar_dark" />
+
+            <!-- Icon + subtitle -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:gravity="center"
+                android:paddingTop="24dp" android:paddingBottom="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="🎬" android:textSize="48sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Instagram Reels Downloader"
+                    android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"
+                    android:layout_marginTop="8dp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Paste link → Fetch → Download"
+                    android:textColor="#AABBFF" android:textSize="13sp" android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- URL Input -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🔗  Paste Instagram Reel / Post Link"
+                android:textColor="#CCCCFF" android:textSize="13sp" android:textStyle="bold"
+                android:layout_marginHorizontal="18dp" android:layout_marginBottom="8dp" />
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="4dp">
+
+                <EditText android:id="@+id/et_url"
+                    android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1"
+                    android:background="@drawable/bg_input_dark"
+                    android:padding="14dp"
+                    android:textColor="#EEEEFF" android:textSize="13sp"
+                    android:textColorHint="#555577"
+                    android:hint="https://www.instagram.com/reel/..."
+                    android:inputType="textUri"
+                    android:singleLine="true" />
+
+                <TextView android:id="@+id/btn_paste"
+                    android:layout_width="wrap_content" android:layout_height="52dp"
+                    android:gravity="center" android:text="📋"
+                    android:paddingHorizontal="14dp"
+                    android:textSize="20sp"
+                    android:background="@drawable/bg_chip"
+                    android:clickable="true" android:focusable="true"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Fetch button -->
+            <TextView android:id="@+id/btn_fetch"
+                android:layout_width="match_parent" android:layout_height="52dp"
+                android:layout_marginHorizontal="16dp" android:layout_marginTop="12dp"
+                android:gravity="center" android:text="🔍  Fetch Reel"
+                android:textColor="#FFFFFF" android:textSize="16sp" android:textStyle="bold"
+                android:background="@drawable/bg_btn_generate"
+                android:clickable="true" android:focusable="true" />
+
+            <!-- Loader -->
+            <ProgressBar android:id="@+id/loader"
+                android:layout_width="44dp" android:layout_height="44dp"
+                android:layout_gravity="center" android:layout_marginTop="12dp"
+                android:indeterminateTint="#E91E8C"
+                android:visibility="gone"
+                android:layout_marginStart="16dp" />
+
+            <!-- Status message -->
+            <LinearLayout android:id="@+id/layout_status"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_result_box"
+                android:padding="16dp"
+                android:layout_marginHorizontal="16dp" android:layout_marginTop="16dp"
+                android:visibility="gone">
+
+                <TextView android:id="@+id/tv_status"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textColor="#EEEEFF" android:textSize="14sp"
+                    android:lineSpacingExtra="4dp" android:gravity="center" />
+
+                <TextView android:id="@+id/btn_download"
+                    android:layout_width="match_parent" android:layout_height="52dp"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center" android:text="⬇️  Download Reel"
+                    android:textColor="#FFFFFF" android:textSize="16sp" android:textStyle="bold"
+                    android:background="@drawable/bg_card_reels"
+                    android:clickable="true" android:focusable="true"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <!-- How to use -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:background="@drawable/bg_tip_box"
+                android:layout_marginHorizontal="16dp" android:layout_marginTop="20dp"
+                android:orientation="vertical" android:padding="14dp">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="📌  How to use"
+                    android:textColor="#FFD700" android:textSize="13sp" android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="1️⃣  Open Instagram → Reel → Share → Copy Link\n2️⃣  Paste the link above\n3️⃣  Tap Fetch Reel → Download 📂"
+                    android:textColor="#FFCCFF" android:textSize="12sp" android:lineSpacingExtra="6dp" />
+
+            </LinearLayout>
+
+            <!-- Note -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:background="@drawable/bg_result_box"
+                android:layout_marginHorizontal="16dp" android:layout_marginTop="12dp"
+                android:orientation="horizontal" android:padding="12dp" android:gravity="center_vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="⚠️" android:textSize="18sp" android:layout_marginEnd="8dp" />
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="Only public posts can be downloaded. Private accounts are not supported."
+                    android:textColor="#AABBFF" android:textSize="12sp" android:lineSpacingExtra="3dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

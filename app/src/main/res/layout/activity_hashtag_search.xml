@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_home">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/bg_toolbar_dark" />
+
+    <!-- Search bar -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="16dp" android:layout_marginTop="14dp"
+        android:layout_marginBottom="10dp">
+
+        <EditText android:id="@+id/et_keyword"
+            android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1"
+            android:background="@drawable/bg_input_dark"
+            android:padding="14dp"
+            android:textColor="#EEEEFF" android:textSize="15sp"
+            android:textColorHint="#555577"
+            android:hint="Enter keyword (e.g. food, travel...)"
+            android:inputType="text"
+            android:singleLine="true"
+            android:imeOptions="actionSearch" />
+
+        <TextView android:id="@+id/btn_search"
+            android:layout_width="wrap_content" android:layout_height="52dp"
+            android:gravity="center" android:text="🔍 Search"
+            android:paddingHorizontal="16dp"
+            android:textColor="#FFFFFF" android:textSize="14sp" android:textStyle="bold"
+            android:background="@drawable/bg_btn_generate"
+            android:clickable="true" android:focusable="true"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!-- Similar / Related tabs -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="16dp" android:layout_marginBottom="12dp">
+
+        <TextView android:id="@+id/tab_similar"
+            android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1"
+            android:gravity="center" android:text="Similar"
+            android:textColor="#FFFFFF" android:textSize="14sp" android:textStyle="bold"
+            android:background="@drawable/bg_btn_generate"
+            android:clickable="true" android:focusable="true"
+            android:layout_marginEnd="6dp" />
+
+        <TextView android:id="@+id/tab_related"
+            android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1"
+            android:gravity="center" android:text="Related"
+            android:textColor="#BBCCFF" android:textSize="14sp" android:textStyle="bold"
+            android:background="@drawable/bg_chip"
+            android:clickable="true" android:focusable="true"
+            android:layout_marginStart="6dp" />
+    </LinearLayout>
+
+    <!-- Hashtag cards — horizontal scroll (Easy / Medium / Hard) -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none"
+        android:id="@+id/scroll_cards"
+        android:visibility="gone">
+
+        <LinearLayout android:id="@+id/cards_row"
+            android:layout_width="wrap_content" android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp" android:paddingBottom="8dp">
+
+            <!-- Easy card -->
+            <LinearLayout android:id="@+id/card_easy"
+                android:layout_width="280dp" android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/bg_result_box"
+                android:padding="14dp"
+                android:layout_marginEnd="12dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="10dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="🟢 Easy"
+                        android:textColor="#00E676" android:textSize="16sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="&lt;100k posts"
+                        android:textColor="#88FFFFFF" android:textSize="11sp" />
+                </LinearLayout>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Best for small accounts — less competition, more chances to rank"
+                    android:textColor="#66FFFFFF" android:textSize="11sp"
+                    android:layout_marginBottom="10dp" />
+
+                <ScrollView android:layout_width="match_parent" android:layout_height="0dp"
+                    android:layout_weight="1" android:scrollbars="none">
+                    <LinearLayout android:id="@+id/container_easy"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+                </ScrollView>
+
+            </LinearLayout>
+
+            <!-- Medium card -->
+            <LinearLayout android:id="@+id/card_medium"
+                android:layout_width="280dp" android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/bg_result_box"
+                android:padding="14dp"
+                android:layout_marginEnd="12dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="10dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="🟡 Medium"
+                        android:textColor="#FFD740" android:textSize="16sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="100k–1M posts"
+                        android:textColor="#88FFFFFF" android:textSize="11sp" />
+                </LinearLayout>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Sweet spot — choose 15–20 from this group for best results"
+                    android:textColor="#66FFFFFF" android:textSize="11sp"
+                    android:layout_marginBottom="10dp" />
+
+                <ScrollView android:layout_width="match_parent" android:layout_height="0dp"
+                    android:layout_weight="1" android:scrollbars="none">
+                    <LinearLayout android:id="@+id/container_medium"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+                </ScrollView>
+
+            </LinearLayout>
+
+            <!-- Hard card -->
+            <LinearLayout android:id="@+id/card_hard"
+                android:layout_width="280dp" android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/bg_result_box"
+                android:padding="14dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="10dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="🔴 Competitive"
+                        android:textColor="#FF5252" android:textSize="16sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="&gt;1M posts"
+                        android:textColor="#88FFFFFF" android:textSize="11sp" />
+                </LinearLayout>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="High competition — use 2–3 max with smaller ones"
+                    android:textColor="#66FFFFFF" android:textSize="11sp"
+                    android:layout_marginBottom="10dp" />
+
+                <ScrollView android:layout_width="match_parent" android:layout_height="0dp"
+                    android:layout_weight="1" android:scrollbars="none">
+                    <LinearLayout android:id="@+id/container_hard"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+                </ScrollView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Empty state -->
+    <LinearLayout android:id="@+id/layout_empty"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" android:gravity="center">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="🔍" android:textSize="52sp" android:gravity="center" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Type a keyword to find\nthe best hashtags"
+            android:textColor="#88FFFFFF" android:textSize="15sp"
+            android:gravity="center" android:layout_marginTop="12dp"
+            android:lineSpacingExtra="4dp" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="e.g. food, travel, fitness, fashion"
+            android:textColor="#44FFFFFF" android:textSize="13sp"
+            android:gravity="center" android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+    <!-- Bottom action bar -->
+    <LinearLayout android:id="@+id/layout_actions"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:background="@drawable/bg_toolbar_dark"
+        android:paddingHorizontal="16dp" android:paddingVertical="10dp"
+        android:visibility="gone">
+
+        <TextView android:id="@+id/tv_selected_count"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:text="0 selected"
+            android:textColor="#AABBFF" android:textSize="13sp" />
+
+        <TextView android:id="@+id/btn_smart_select"
+            android:layout_width="wrap_content" android:layout_height="42dp"
+            android:gravity="center" android:text="⚡ SMART SELECT"
+            android:paddingHorizontal="16dp"
+            android:textColor="#000000" android:textSize="13sp" android:textStyle="bold"
+            android:background="@drawable/bg_smart_select"
+            android:clickable="true" android:focusable="true"
+            android:layout_marginEnd="8dp" />
+
+        <TextView android:id="@+id/btn_copy_selected"
+            android:layout_width="wrap_content" android:layout_height="42dp"
+            android:gravity="center" android:text="📋 Copy"
+            android:paddingHorizontal="14dp"
+            android:textColor="#FFFFFF" android:textSize="13sp" android:textStyle="bold"
+            android:background="@drawable/bg_btn_copy"
+            android:clickable="true" android:focusable="true" />
+    </LinearLayout>
+
+</LinearLayout>

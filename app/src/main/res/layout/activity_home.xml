@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home"
+    android:fillViewport="true">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:paddingBottom="24dp">
+
+        <!-- ── Header ── -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="20dp" android:paddingTop="46dp" android:paddingBottom="6dp">
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="#HashKit"
+                    android:textColor="#FFFFFF" android:textSize="26sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Instagram Growth Toolkit"
+                    android:textColor="#77FFFFFF" android:textSize="12sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="38dp" android:layout_height="38dp"
+                android:src="@drawable/dev_photo"
+                android:scaleType="centerCrop"
+                android:background="@drawable/bg_logo_gradient"
+                android:outlineProvider="background"
+                android:clipToOutline="true" />
+        </LinearLayout>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="What would you like to create today? 🚀"
+            android:textColor="#99FFFFFF" android:textSize="13sp"
+            android:paddingHorizontal="20dp" android:paddingTop="4dp" android:paddingBottom="14dp" />
+
+        <!-- ── Reels Downloader (hero) ── -->
+        <LinearLayout android:id="@+id/card_reels"
+            android:layout_width="match_parent" android:layout_height="130dp"
+            android:layout_marginHorizontal="16dp" android:layout_marginBottom="10dp"
+            android:background="@drawable/bg_card_reels"
+            android:orientation="horizontal" android:padding="20dp"
+            android:gravity="center_vertical"
+            android:clickable="true" android:focusable="true">
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="🎬 Reels Downloader"
+                    android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Paste Instagram link → save reel to phone"
+                    android:textColor="#DDFFFFFF" android:textSize="12sp" android:layout_marginTop="5dp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Tap to use  →"
+                    android:textColor="#FFFFFFFF" android:textSize="11sp" android:textStyle="bold"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="⬇️" android:textSize="38sp" />
+        </LinearLayout>
+
+        <!-- ── Photo AI (hero) ── -->
+        <LinearLayout android:id="@+id/card_photo"
+            android:layout_width="match_parent" android:layout_height="130dp"
+            android:layout_marginHorizontal="16dp" android:layout_marginBottom="10dp"
+            android:background="@drawable/bg_card_photo"
+            android:orientation="horizontal" android:padding="20dp"
+            android:gravity="center_vertical"
+            android:clickable="true" android:focusable="true">
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="📸 Photo AI Generator"
+                    android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Upload photo → AI detects → hashtags + caption"
+                    android:textColor="#DDFFFFFF" android:textSize="12sp" android:layout_marginTop="5dp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Tap to use  →"
+                    android:textColor="#FFFFFFFF" android:textSize="11sp" android:textStyle="bold"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🤖" android:textSize="38sp" />
+        </LinearLayout>
+
+        <!-- ── Hashtag Search (hero) ── -->
+        <LinearLayout android:id="@+id/card_search"
+            android:layout_width="match_parent" android:layout_height="130dp"
+            android:layout_marginHorizontal="16dp" android:layout_marginBottom="10dp"
+            android:background="@drawable/bg_card_search"
+            android:orientation="horizontal" android:padding="20dp"
+            android:gravity="center_vertical"
+            android:clickable="true" android:focusable="true">
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="🔍 Hashtag Search"
+                    android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Keyword → Easy / Medium / Hard tags with post counts"
+                    android:textColor="#DDFFFFFF" android:textSize="12sp" android:layout_marginTop="5dp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="⚡ Smart Select included  →"
+                    android:textColor="#1DE9B6" android:textSize="11sp" android:textStyle="bold"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📊" android:textSize="38sp" />
+        </LinearLayout>
+
+        <!-- ── Row: Keyword + Caption ── -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:paddingHorizontal="16dp"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout android:id="@+id/card_keyword"
+                android:layout_width="0dp" android:layout_height="145dp" android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_card_keyword"
+                android:orientation="vertical" android:padding="16dp"
+                android:clickable="true" android:focusable="true">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="#️⃣" android:textSize="26sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Keyword\nHashtags"
+                    android:textColor="#FFFFFF" android:textSize="14sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Type keyword → 30 tags"
+                    android:textColor="#DDFFFFFF" android:textSize="11sp" android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/card_caption"
+                android:layout_width="0dp" android:layout_height="145dp" android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/bg_card_caption"
+                android:orientation="vertical" android:padding="16dp"
+                android:clickable="true" android:focusable="true">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="✍️" android:textSize="26sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Caption\nWriter"
+                    android:textColor="#FFFFFF" android:textSize="14sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="100+ captions + emojis"
+                    android:textColor="#DDFFFFFF" android:textSize="11sp" android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ── Row: Bio + Counter ── -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:paddingHorizontal="16dp"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout android:id="@+id/card_bio"
+                android:layout_width="0dp" android:layout_height="145dp" android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_card_bio"
+                android:orientation="vertical" android:padding="16dp"
+                android:clickable="true" android:focusable="true">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="👤" android:textSize="26sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Bio\nGenerator"
+                    android:textColor="#FFFFFF" android:textSize="14sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="5 bios per niche"
+                    android:textColor="#DDFFFFFF" android:textSize="11sp" android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/card_counter"
+                android:layout_width="0dp" android:layout_height="145dp" android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/bg_card_counter"
+                android:orientation="vertical" android:padding="16dp"
+                android:clickable="true" android:focusable="true">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="🔢" android:textSize="26sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Character\nCounter"
+                    android:textColor="#FFFFFF" android:textSize="14sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Check IG limits"
+                    android:textColor="#DDFFFFFF" android:textSize="11sp" android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ── Trending Tags (full) ── -->
+        <LinearLayout android:id="@+id/card_trending"
+            android:layout_width="match_parent" android:layout_height="110dp"
+            android:layout_marginHorizontal="16dp" android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_card_trending"
+            android:orientation="horizontal" android:padding="20dp"
+            android:gravity="center_vertical"
+            android:clickable="true" android:focusable="true">
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="🔥 Trending Tags Browser"
+                    android:textColor="#FFFFFF" android:textSize="16sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="15 categories × 30 hashtags — tap to explore"
+                    android:textColor="#DDFFFFFF" android:textSize="12sp" android:layout_marginTop="5dp" />
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📈" android:textSize="36sp" />
+        </LinearLayout>
+
+        <!-- ── Tip ── -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="@drawable/bg_tip_box"
+            android:layout_marginHorizontal="16dp" android:layout_marginBottom="14dp"
+            android:orientation="horizontal" android:padding="14dp" android:gravity="center_vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="💡" android:textSize="20sp" android:layout_marginEnd="10dp" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Instagram Pro Tip"
+                    android:textColor="#FFD700" android:textSize="12sp" android:textStyle="bold"
+                    android:layout_marginBottom="3dp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Top 5 hashtags in caption + all 30 in first comment = maximum reach! 🚀"
+                    android:textColor="#FFCCFF" android:textSize="12sp" android:lineSpacingExtra="3dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ── Developer credit ── -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center"
+            android:paddingBottom="4dp">
+            <ImageView
+                android:layout_width="28dp" android:layout_height="28dp"
+                android:src="@drawable/dev_photo"
+                android:scaleType="centerCrop"
+                android:background="@drawable/bg_photo_circle"
+                android:outlineProvider="background"
+                android:clipToOutline="true"
+                android:layout_marginEnd="8dp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Developed by Mukesh Kumar"
+                android:textColor="#44FFFFFF" android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:paddingBottom="30dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/bg_toolbar_dark" />
+
+        <!-- Subtitle -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Choose your niche and get 5 ready Instagram bios!"
+            android:textColor="#AABBFF" android:textSize="13sp"
+            android:layout_marginHorizontal="18dp" android:layout_marginTop="16dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Niche chips -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="👤  Select Your Niche"
+            android:textColor="#CCCCFF" android:textSize="13sp" android:textStyle="bold"
+            android:layout_marginHorizontal="18dp" android:layout_marginBottom="10dp" />
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginHorizontal="14dp"
+            android:layout_marginBottom="8dp">
+            <TextView android:id="@+id/niche_influencer" style="@style/CatBtn" android:text="🌟 Influencer" />
+            <TextView android:id="@+id/niche_photographer" style="@style/CatBtn" android:text="📸 Photographer" />
+            <TextView android:id="@+id/niche_entrepreneur" style="@style/CatBtn" android:text="💼 Entrepreneur" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginHorizontal="14dp"
+            android:layout_marginBottom="8dp">
+            <TextView android:id="@+id/niche_fitness" style="@style/CatBtn" android:text="💪 Fitness" />
+            <TextView android:id="@+id/niche_chef" style="@style/CatBtn" android:text="🍳 Chef/Foodie" />
+            <TextView android:id="@+id/niche_artist" style="@style/CatBtn" android:text="🎨 Artist" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginHorizontal="14dp"
+            android:layout_marginBottom="8dp">
+            <TextView android:id="@+id/niche_traveler" style="@style/CatBtn" android:text="✈️ Traveler" />
+            <TextView android:id="@+id/niche_fashion" style="@style/CatBtn" android:text="👗 Fashion" />
+            <TextView android:id="@+id/niche_motivator" style="@style/CatBtn" android:text="🔥 Motivator" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginHorizontal="14dp"
+            android:layout_marginBottom="16dp">
+            <TextView android:id="@+id/niche_beauty" style="@style/CatBtn" android:text="💄 Beauty" />
+            <TextView android:id="@+id/niche_tech" style="@style/CatBtn" android:text="💻 Tech" />
+            <TextView android:id="@+id/niche_musician" style="@style/CatBtn" android:text="🎵 Musician" />
+        </LinearLayout>
+
+        <!-- Bio results -->
+        <LinearLayout android:id="@+id/layout_bios"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="16dp"
+            android:visibility="gone">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="✨ Your Instagram Bios (tap to copy)"
+                android:textColor="#00E5FF" android:textSize="14sp" android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Bio 1 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:background="@drawable/bg_result_box" android:padding="12dp"
+                android:layout_marginBottom="10dp">
+                <TextView android:id="@+id/tv_bio1"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:textColor="#EEEEFF" android:textSize="13sp" android:lineSpacingExtra="3dp" />
+                <TextView android:id="@+id/btn_copy_bio1"
+                    android:layout_width="wrap_content" android:layout_height="32dp"
+                    android:gravity="center" android:text="📋" android:paddingHorizontal="12dp"
+                    android:textColor="#FFFFFF" android:textSize="14sp"
+                    android:background="@drawable/bg_btn_copy"
+                    android:clickable="true" android:focusable="true" android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Bio 2 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:background="@drawable/bg_result_box" android:padding="12dp"
+                android:layout_marginBottom="10dp">
+                <TextView android:id="@+id/tv_bio2"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:textColor="#EEEEFF" android:textSize="13sp" android:lineSpacingExtra="3dp" />
+                <TextView android:id="@+id/btn_copy_bio2"
+                    android:layout_width="wrap_content" android:layout_height="32dp"
+                    android:gravity="center" android:text="📋" android:paddingHorizontal="12dp"
+                    android:textColor="#FFFFFF" android:textSize="14sp"
+                    android:background="@drawable/bg_btn_copy"
+                    android:clickable="true" android:focusable="true" android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Bio 3 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:background="@drawable/bg_result_box" android:padding="12dp"
+                android:layout_marginBottom="10dp">
+                <TextView android:id="@+id/tv_bio3"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:textColor="#EEEEFF" android:textSize="13sp" android:lineSpacingExtra="3dp" />
+                <TextView android:id="@+id/btn_copy_bio3"
+                    android:layout_width="wrap_content" android:layout_height="32dp"
+                    android:gravity="center" android:text="📋" android:paddingHorizontal="12dp"
+                    android:textColor="#FFFFFF" android:textSize="14sp"
+                    android:background="@drawable/bg_btn_copy"
+                    android:clickable="true" android:focusable="true" android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Bio 4 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:background="@drawable/bg_result_box" android:padding="12dp"
+                android:layout_marginBottom="10dp">
+                <TextView android:id="@+id/tv_bio4"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:textColor="#EEEEFF" android:textSize="13sp" android:lineSpacingExtra="3dp" />
+                <TextView android:id="@+id/btn_copy_bio4"
+                    android:layout_width="wrap_content" android:layout_height="32dp"
+                    android:gravity="center" android:text="📋" android:paddingHorizontal="12dp"
+                    android:textColor="#FFFFFF" android:textSize="14sp"
+                    android:background="@drawable/bg_btn_copy"
+                    android:clickable="true" android:focusable="true" android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Bio 5 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:background="@drawable/bg_result_box" android:padding="12dp"
+                android:layout_marginBottom="10dp">
+                <TextView android:id="@+id/tv_bio5"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:textColor="#EEEEFF" android:textSize="13sp" android:lineSpacingExtra="3dp" />
+                <TextView android:id="@+id/btn_copy_bio5"
+                    android:layout_width="wrap_content" android:layout_height="32dp"
+                    android:gravity="center" android:text="📋" android:paddingHorizontal="12dp"
+                    android:textColor="#FFFFFF" android:textSize="14sp"
+                    android:background="@drawable/bg_btn_copy"
+                    android:clickable="true" android:focusable="true" android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Tip -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:background="@drawable/bg_tip_box" android:padding="12dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="4dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="💡" android:textSize="18sp" android:layout_marginEnd="8dp" />
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="Instagram bio limit: 150 characters. Keep it punchy and use emojis!"
+                    android:textColor="#FFCCFF" android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

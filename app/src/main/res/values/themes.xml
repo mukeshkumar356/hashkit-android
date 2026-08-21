@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.HashKit" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">#6C3CE1</item>
+        <item name="colorPrimaryDark">#0A0E27</item>
+        <item name="colorAccent">#FF4081</item>
+        <item name="android:windowBackground">@color/home_bg</item>
+        <item name="android:statusBarColor">@color/home_bg</item>
+    </style>
+
+    <style name="Theme.HashKit.Light" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">#6C3CE1</item>
+        <item name="colorPrimaryDark">#4527A0</item>
+        <item name="colorAccent">#FF4081</item>
+    </style>
+</resources>

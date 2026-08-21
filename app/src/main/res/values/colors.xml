@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="home_bg">#0A0E27</color>
+    <color name="card_photo">#E91E8C</color>
+    <color name="card_keyword">#6C3CE1</color>
+    <color name="card_caption">#00B4D8</color>
+    <color name="accent_pink">#FF4081</color>
+    <color name="accent_purple">#7C4DFF</color>
+    <color name="accent_blue">#2979FF</color>
+    <color name="text_hint">#9E9E9E</color>
+    <color name="chip_bg">#1E1E3A</color>
+    <color name="divider">#2A2A4A</color>
+    <color name="result_bg">#12153A</color>
+</resources>

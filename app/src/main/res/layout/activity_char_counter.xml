@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:paddingBottom="30dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/bg_toolbar_dark" />
+
+        <!-- Subtitle -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Check character limits before posting on Instagram"
+            android:textColor="#AABBFF" android:textSize="13sp"
+            android:layout_marginHorizontal="18dp" android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Text input -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="📝  Type or Paste Your Text"
+            android:textColor="#CCCCFF" android:textSize="13sp" android:textStyle="bold"
+            android:layout_marginHorizontal="18dp" android:layout_marginBottom="8dp" />
+
+        <EditText android:id="@+id/et_text"
+            android:layout_width="match_parent" android:layout_height="160dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/bg_input_dark"
+            android:padding="14dp"
+            android:textColor="#EEEEFF" android:textSize="14sp"
+            android:textColorHint="#555577"
+            android:hint="Type or paste your caption, bio, or comment here..."
+            android:inputType="textMultiLine"
+            android:gravity="top"
+            android:minLines="5" />
+
+        <!-- Clear button -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="end"
+            android:layout_marginHorizontal="16dp" android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp">
+            <TextView android:id="@+id/btn_clear"
+                android:layout_width="wrap_content" android:layout_height="36dp"
+                android:gravity="center" android:text="🗑 Clear"
+                android:paddingHorizontal="16dp"
+                android:textColor="#FFFFFF" android:textSize="13sp" android:textStyle="bold"
+                android:background="@drawable/bg_chip"
+                android:clickable="true" android:focusable="true" />
+        </LinearLayout>
+
+        <!-- Stats cards row -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp">
+
+            <!-- Characters -->
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_result_box" android:padding="14dp"
+                android:orientation="vertical" android:gravity="center">
+                <TextView android:id="@+id/tv_char_count"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="0" android:textColor="#E91E8C"
+                    android:textSize="32sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Characters" android:textColor="#AABBFF" android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Words -->
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:layout_marginStart="3dp" android:layout_marginEnd="3dp"
+                android:background="@drawable/bg_result_box" android:padding="14dp"
+                android:orientation="vertical" android:gravity="center">
+                <TextView android:id="@+id/tv_word_count"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="0" android:textColor="#00E5FF"
+                    android:textSize="32sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Words" android:textColor="#AABBFF" android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Lines -->
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:layout_marginStart="6dp"
+                android:background="@drawable/bg_result_box" android:padding="14dp"
+                android:orientation="vertical" android:gravity="center">
+                <TextView android:id="@+id/tv_line_count"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="0" android:textColor="#69F0AE"
+                    android:textSize="32sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Lines" android:textColor="#AABBFF" android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Instagram Limits -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="📊  Instagram Limits"
+            android:textColor="#CCCCFF" android:textSize="13sp" android:textStyle="bold"
+            android:layout_marginHorizontal="18dp" android:layout_marginBottom="10dp" />
+
+        <!-- Caption limit -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_result_box"
+            android:padding="14dp"
+            android:layout_marginHorizontal="16dp" android:layout_marginBottom="10dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="6dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="📝 Caption" android:textColor="#CCCCFF" android:textSize="13sp" android:textStyle="bold" />
+                <TextView android:id="@+id/tv_caption_status"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="0 / 2200" android:textColor="#00E5FF" android:textSize="13sp" android:textStyle="bold" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/pb_caption"
+                android:layout_width="match_parent" android:layout_height="8dp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:max="2200" android:progress="0"
+                android:progressDrawable="@drawable/bg_progress_pink" />
+        </LinearLayout>
+
+        <!-- Bio limit -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_result_box"
+            android:padding="14dp"
+            android:layout_marginHorizontal="16dp" android:layout_marginBottom="10dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="6dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="👤 Bio" android:textColor="#CCCCFF" android:textSize="13sp" android:textStyle="bold" />
+                <TextView android:id="@+id/tv_bio_status"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="0 / 150" android:textColor="#00E5FF" android:textSize="13sp" android:textStyle="bold" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/pb_bio"
+                android:layout_width="match_parent" android:layout_height="8dp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:max="150" android:progress="0"
+                android:progressDrawable="@drawable/bg_progress_pink" />
+        </LinearLayout>
+
+        <!-- Comment limit -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_result_box"
+            android:padding="14dp"
+            android:layout_marginHorizontal="16dp" android:layout_marginBottom="16dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="6dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="💬 Comment" android:textColor="#CCCCFF" android:textSize="13sp" android:textStyle="bold" />
+                <TextView android:id="@+id/tv_comment_status"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="0 / 2200" android:textColor="#00E5FF" android:textSize="13sp" android:textStyle="bold" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/pb_comment"
+                android:layout_width="match_parent" android:layout_height="8dp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:max="2200" android:progress="0"
+                android:progressDrawable="@drawable/bg_progress_pink" />
+        </LinearLayout>
+
+        <!-- Hashtag tip -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="@drawable/bg_tip_box"
+            android:layout_marginHorizontal="16dp"
+            android:orientation="horizontal" android:padding="14dp" android:gravity="center_vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="💡" android:textSize="20sp" android:layout_marginEnd="10dp" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="Tip: Instagram shows only first 3 lines of caption. Put hashtags at the end or in comments!"
+                android:textColor="#FFCCFF" android:textSize="12sp" android:lineSpacingExtra="3dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

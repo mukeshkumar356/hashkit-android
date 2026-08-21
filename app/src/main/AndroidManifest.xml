@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.HashKit">
+
+        <activity android:name=".SplashActivity" android:exported="true" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".HomeActivity"          android:exported="false" />
+        <activity android:name=".PhotoHashtagActivity"  android:exported="false" />
+        <activity android:name=".KeywordHashtagActivity" android:exported="false" />
+        <activity android:name=".CaptionActivity"       android:exported="false" />
+        <activity android:name=".BioGeneratorActivity"  android:exported="false" />
+        <activity android:name=".CharCounterActivity"   android:exported="false" />
+        <activity android:name=".TrendingTagsActivity"    android:exported="false" />
+        <activity android:name=".ReelsDownloaderActivity"  android:exported="false" />
+        <activity android:name=".HashtagSearchActivity"   android:exported="false" />
+
+        <receiver android:name=".DownloadReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.app.action.DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,2 @@
+-keep class com.hashkit.app.** { *; }
+-keep class com.google.mlkit.** { *; }

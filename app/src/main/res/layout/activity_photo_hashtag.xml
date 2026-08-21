@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/bg_toolbar_dark" />
+
+        <!-- Photo picker -->
+        <LinearLayout android:id="@+id/layout_pick"
+            android:layout_width="match_parent" android:layout_height="190dp"
+            android:layout_margin="16dp" android:background="@drawable/bg_input_dark"
+            android:orientation="vertical" android:gravity="center"
+            android:clickable="true" android:focusable="true">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📷" android:textSize="48sp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Tap to select photo"
+                android:textColor="#AAAACC" android:textSize="15sp" android:layout_marginTop="8dp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="AI will auto-detect content"
+                android:textColor="#667799" android:textSize="12sp" android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- Preview -->
+        <ImageView android:id="@+id/iv_preview"
+            android:layout_width="match_parent" android:layout_height="220dp"
+            android:layout_marginHorizontal="16dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/bg_input_dark"
+            android:visibility="gone" />
+
+        <!-- Analyze button -->
+        <TextView android:id="@+id/btn_analyze"
+            android:layout_width="match_parent" android:layout_height="52dp"
+            android:layout_marginHorizontal="16dp" android:layout_marginTop="12dp"
+            android:gravity="center" android:text="🔍  AI Analyze &amp; Generate"
+            android:textColor="#FFFFFF" android:textSize="16sp" android:textStyle="bold"
+            android:background="@drawable/bg_btn_generate"
+            android:clickable="true" android:focusable="true"
+            android:visibility="gone" />
+
+        <!-- Loader -->
+        <ProgressBar android:id="@+id/loader"
+            android:layout_width="44dp" android:layout_height="44dp"
+            android:layout_gravity="center" android:layout_marginTop="12dp"
+            android:indeterminateTint="#E91E8C"
+            android:visibility="gone"
+            android:layout_marginStart="16dp" />
+
+        <!-- Category selection (manual override) -->
+        <LinearLayout android:id="@+id/layout_category"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="16dp" android:layout_marginTop="14dp"
+            android:visibility="gone">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📂  Photo Category (tap to change)"
+                android:textColor="#CCCCFF" android:textSize="13sp"
+                android:textStyle="bold" android:layout_marginBottom="10dp" />
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="8dp">
+                <TextView android:id="@+id/cat_food"    style="@style/CatBtn" android:text="🍔 Food" />
+                <TextView android:id="@+id/cat_travel"  style="@style/CatBtn" android:text="✈️ Travel" />
+                <TextView android:id="@+id/cat_fashion" style="@style/CatBtn" android:text="👗 Fashion" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="8dp">
+                <TextView android:id="@+id/cat_fitness"  style="@style/CatBtn" android:text="💪 Fitness" />
+                <TextView android:id="@+id/cat_nature"   style="@style/CatBtn" android:text="🌿 Nature" />
+                <TextView android:id="@+id/cat_beauty"   style="@style/CatBtn" android:text="💄 Beauty" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="8dp">
+                <TextView android:id="@+id/cat_business"   style="@style/CatBtn" android:text="💼 Business" />
+                <TextView android:id="@+id/cat_motivation" style="@style/CatBtn" android:text="🔥 Motivation" />
+                <TextView android:id="@+id/cat_reels"      style="@style/CatBtn" android:text="🎬 Reels" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="4dp">
+                <TextView android:id="@+id/cat_photography" style="@style/CatBtn" android:text="📸 Photo" />
+                <TextView android:id="@+id/cat_art"         style="@style/CatBtn" android:text="🎨 Art" />
+                <TextView android:id="@+id/cat_lifestyle"   style="@style/CatBtn" android:text="🌟 Lifestyle" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Caption -->
+        <LinearLayout android:id="@+id/layout_caption"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_margin="16dp" android:orientation="vertical" android:visibility="gone">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="6dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="✍️ Suggested Caption"
+                    android:textColor="#00B4D8" android:textSize="13sp" android:textStyle="bold" />
+                <TextView android:id="@+id/btn_new_caption"
+                    android:layout_width="wrap_content" android:layout_height="32dp"
+                    android:gravity="center" android:text="🔄 New" android:paddingHorizontal="12dp"
+                    android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold"
+                    android:background="@drawable/bg_chip"
+                    android:clickable="true" android:focusable="true"
+                    android:layout_marginEnd="6dp" />
+                <TextView android:id="@+id/btn_copy_caption"
+                    android:layout_width="wrap_content" android:layout_height="32dp"
+                    android:gravity="center" android:text="📋 Copy" android:paddingHorizontal="14dp"
+                    android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold"
+                    android:background="@drawable/bg_btn_copy"
+                    android:clickable="true" android:focusable="true" />
+            </LinearLayout>
+            <TextView android:id="@+id/tv_caption"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:background="@drawable/bg_result_box" android:padding="14dp"
+                android:textColor="#EEEEFF" android:textSize="14sp" android:lineSpacingExtra="4dp" />
+        </LinearLayout>
+
+        <!-- Hashtags -->
+        <LinearLayout android:id="@+id/layout_hashtags"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp" android:layout_marginBottom="20dp"
+            android:orientation="vertical" android:visibility="gone">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="6dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="⭐ Top 5 Trending (Caption mein use karo)"
+                    android:textColor="#FFD700" android:textSize="13sp" android:textStyle="bold" />
+                <TextView android:id="@+id/btn_copy_top5"
+                    android:layout_width="wrap_content" android:layout_height="32dp"
+                    android:gravity="center" android:text="📋 Copy" android:paddingHorizontal="14dp"
+                    android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold"
+                    android:background="@drawable/bg_btn_copy"
+                    android:clickable="true" android:focusable="true" />
+            </LinearLayout>
+            <TextView android:id="@+id/tv_top5"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:background="@drawable/bg_tip_box" android:padding="12dp"
+                android:textColor="#FFFACD" android:textSize="13sp"
+                android:lineSpacingExtra="4dp" android:layout_marginBottom="10dp" />
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="6dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="📋 All 30 Hashtags (First Comment mein paste karo)"
+                    android:textColor="#AABBFF" android:textSize="13sp" android:textStyle="bold" />
+                <TextView android:id="@+id/btn_copy_all"
+                    android:layout_width="wrap_content" android:layout_height="32dp"
+                    android:gravity="center" android:text="📋 Copy All" android:paddingHorizontal="14dp"
+                    android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold"
+                    android:background="@drawable/bg_btn_copy"
+                    android:clickable="true" android:focusable="true" />
+            </LinearLayout>
+            <TextView android:id="@+id/tv_all_tags"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:background="@drawable/bg_result_box" android:padding="14dp"
+                android:textColor="#BBCCFF" android:textSize="13sp" android:lineSpacingExtra="5dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

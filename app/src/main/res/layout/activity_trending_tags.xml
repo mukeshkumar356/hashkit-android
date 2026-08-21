@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:paddingBottom="30dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/bg_toolbar_dark" />
+
+        <!-- Subtitle -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Browse top trending hashtags by category"
+            android:textColor="#AABBFF" android:textSize="13sp"
+            android:layout_marginHorizontal="18dp" android:layout_marginTop="16dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Category chips scroll -->
+        <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:scrollbars="none">
+            <LinearLayout android:id="@+id/chip_row"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:paddingHorizontal="14dp" />
+        </HorizontalScrollView>
+
+        <!-- Results header -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginHorizontal="16dp" android:layout_marginBottom="8dp">
+            <TextView android:id="@+id/tv_cat_title"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="⭐ Top Trending Tags"
+                android:textColor="#FFD700" android:textSize="14sp" android:textStyle="bold" />
+            <TextView android:id="@+id/btn_copy_all"
+                android:layout_width="wrap_content" android:layout_height="36dp"
+                android:gravity="center" android:text="📋 Copy All"
+                android:paddingHorizontal="14dp"
+                android:textColor="#FFFFFF" android:textSize="13sp" android:textStyle="bold"
+                android:background="@drawable/bg_btn_copy"
+                android:clickable="true" android:focusable="true" />
+        </LinearLayout>
+
+        <!-- Top 5 trending -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp" android:layout_marginBottom="6dp"
+            android:text="🔥 Top 5 — Use in Caption"
+            android:textColor="#FF4081" android:textSize="12sp" android:textStyle="bold" />
+
+        <TextView android:id="@+id/tv_top5"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="@drawable/bg_tip_box" android:padding="14dp"
+            android:textColor="#FFFACD" android:textSize="13sp"
+            android:lineSpacingExtra="5dp"
+            android:layout_marginHorizontal="16dp" android:layout_marginBottom="12dp" />
+
+        <!-- All 30 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginHorizontal="16dp" android:layout_marginBottom="8dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="📋 All 30 Hashtags"
+                android:textColor="#AABBFF" android:textSize="13sp" android:textStyle="bold" />
+            <TextView android:id="@+id/btn_copy_top5"
+                android:layout_width="wrap_content" android:layout_height="32dp"
+                android:gravity="center" android:text="📋 Copy Top 5"
+                android:paddingHorizontal="12dp"
+                android:textColor="#FFFFFF" android:textSize="11sp" android:textStyle="bold"
+                android:background="@drawable/bg_btn_copy"
+                android:clickable="true" android:focusable="true" />
+        </LinearLayout>
+
+        <TextView android:id="@+id/tv_all_tags"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="@drawable/bg_result_box" android:padding="14dp"
+            android:textColor="#BBCCFF" android:textSize="13sp" android:lineSpacingExtra="5dp"
+            android:layout_marginHorizontal="16dp" android:layout_marginBottom="14dp" />
+
+        <!-- Tip -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="@drawable/bg_tip_box"
+            android:layout_marginHorizontal="16dp"
+            android:orientation="horizontal" android:padding="14dp" android:gravity="center_vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="💡" android:textSize="20sp" android:layout_marginEnd="10dp" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="Instagram Strategy: Put Top 5 in caption, paste all 30 in first comment for maximum reach!"
+                android:textColor="#FFCCFF" android:textSize="12sp" android:lineSpacingExtra="3dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
