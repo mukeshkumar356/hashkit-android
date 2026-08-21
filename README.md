@@ -6,6 +6,7 @@
 
 **A native Android toolkit for Instagram creators — hashtag research, on-device AI captioning, and content tools, built with a strong focus on privacy and platform-policy compliance.**
 
+[![CI](https://github.com/mukeshkumar356/hashkit-android/actions/workflows/android-ci.yml/badge.svg)](https://github.com/mukeshkumar356/hashkit-android/actions/workflows/android-ci.yml)
 [![Platform](https://img.shields.io/badge/platform-Android-3DDC84?logo=android&logoColor=white)](#)
 [![Language](https://img.shields.io/badge/language-Java-ED8B00?logo=openjdk&logoColor=white)](#)
 [![Min SDK](https://img.shields.io/badge/minSdk-26-blue)](#)
