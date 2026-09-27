@@ -30,6 +30,8 @@ public class DownloadReceiver extends BroadcastReceiver {
         prefs.edit().remove("dl_" + id).apply();
 
         DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+        if (dm == null) return;
+
         Uri fileUri = dm.getUriForDownloadedFile(id);
         if (fileUri == null) return;
 
