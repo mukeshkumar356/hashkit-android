@@ -47,31 +47,24 @@ public class CharCounterActivity extends AppCompatActivity {
     }
 
     private void updateCounts(String text) {
-        int chars = text.length();
-        int words = text.trim().isEmpty() ? 0 : text.trim().split("\\s+").length;
-        int lines = text.isEmpty() ? 0 : text.split("\n", -1).length;
+        TextStatsCalculator.Stats stats = TextStatsCalculator.calculate(text);
+        int chars = stats.chars;
 
         tvCharCount.setText(String.valueOf(chars));
-        tvWordCount.setText(String.valueOf(words));
-        tvLineCount.setText(String.valueOf(lines));
+        tvWordCount.setText(String.valueOf(stats.words));
+        tvLineCount.setText(String.valueOf(stats.lines));
 
-        // Caption: 2200
-        int capProgress = Math.min(chars, 2200);
-        pbCaption.setProgress(capProgress);
-        tvCaptionStatus.setText(chars + " / 2200");
-        tvCaptionStatus.setTextColor(chars > 2200 ? 0xFFFF5252 : 0xFF00E5FF);
+        pbCaption.setProgress(TextStatsCalculator.progressFor(chars, TextStatsCalculator.CAPTION_LIMIT));
+        tvCaptionStatus.setText(chars + " / " + TextStatsCalculator.CAPTION_LIMIT);
+        tvCaptionStatus.setTextColor(TextStatsCalculator.isOverLimit(chars, TextStatsCalculator.CAPTION_LIMIT) ? 0xFFFF5252 : 0xFF00E5FF);
 
-        // Bio: 150
-        int bioProgress = Math.min(chars, 150);
-        pbBio.setProgress(bioProgress);
-        tvBioStatus.setText(chars + " / 150");
-        tvBioStatus.setTextColor(chars > 150 ? 0xFFFF5252 : 0xFF00E5FF);
+        pbBio.setProgress(TextStatsCalculator.progressFor(chars, TextStatsCalculator.BIO_LIMIT));
+        tvBioStatus.setText(chars + " / " + TextStatsCalculator.BIO_LIMIT);
+        tvBioStatus.setTextColor(TextStatsCalculator.isOverLimit(chars, TextStatsCalculator.BIO_LIMIT) ? 0xFFFF5252 : 0xFF00E5FF);
 
-        // Comment: 2200
-        int comProgress = Math.min(chars, 2200);
-        pbComment.setProgress(comProgress);
-        tvCommentStatus.setText(chars + " / 2200");
-        tvCommentStatus.setTextColor(chars > 2200 ? 0xFFFF5252 : 0xFF00E5FF);
+        pbComment.setProgress(TextStatsCalculator.progressFor(chars, TextStatsCalculator.COMMENT_LIMIT));
+        tvCommentStatus.setText(chars + " / " + TextStatsCalculator.COMMENT_LIMIT);
+        tvCommentStatus.setTextColor(TextStatsCalculator.isOverLimit(chars, TextStatsCalculator.COMMENT_LIMIT) ? 0xFFFF5252 : 0xFF00E5FF);
     }
 
     @Override public boolean onSupportNavigateUp() { finish(); return true; }
