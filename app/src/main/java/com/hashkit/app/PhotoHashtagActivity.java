@@ -155,7 +155,10 @@ public class PhotoHashtagActivity extends AppCompatActivity {
                 btnAnalyze.setEnabled(true);
                 layoutCategory.setVisibility(View.VISIBLE);
                 Toast.makeText(this, "Auto-detect failed — select manually", Toast.LENGTH_LONG).show();
-            });
+            })
+            // A new labeler is created on every analysis; release its native
+            // ML Kit resources once the task finishes instead of leaking them.
+            .addOnCompleteListener(task -> labeler.close());
     }
 
     private void processLabels(List<ImageLabel> labels) {
