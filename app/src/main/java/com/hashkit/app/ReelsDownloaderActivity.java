@@ -158,6 +158,9 @@ public class ReelsDownloaderActivity extends AppCompatActivity {
     // ─── Method 3: WebView fallback ───────────────────────────────────────────
 
     private void startWebViewFetch(String shortcode) {
+        // The cobalt request runs on a background thread for up to ~27s, so the
+        // activity may already be gone by the time this is posted.
+        if (isDestroyed()) return;
         webView.setVisibility(View.VISIBLE);
         webView.clearCache(true);
 
@@ -328,7 +331,9 @@ public class ReelsDownloaderActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (timeoutRunnable != null) mainHandler.removeCallbacks(timeoutRunnable);
+        // Also cancels the delayed loadUrl() fallbacks queued by startWebViewFetch,
+        // which would otherwise run against an already-destroyed WebView.
+        mainHandler.removeCallbacksAndMessages(null);
         if (webView != null) { webView.stopLoading(); webView.destroy(); }
     }
 
