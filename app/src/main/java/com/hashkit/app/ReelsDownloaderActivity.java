@@ -18,6 +18,7 @@ import androidx.appcompat.widget.Toolbar;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.regex.Matcher;
@@ -128,9 +129,9 @@ public class ReelsDownloaderActivity extends AppCompatActivity {
     // ─── Method 1: cobalt.tools API ───────────────────────────────────────────
 
     private String tryCobaltApi(String igUrl) {
+        HttpURLConnection conn = null;
         try {
-            HttpURLConnection conn = (HttpURLConnection)
-                new URL("https://api.cobalt.tools/").openConnection();
+            conn = (HttpURLConnection) new URL("https://api.cobalt.tools/").openConnection();
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setRequestProperty("Accept", "application/json");
@@ -139,7 +140,9 @@ public class ReelsDownloaderActivity extends AppCompatActivity {
             conn.setReadTimeout(15000);
 
             String body = "{\"url\":\"" + igUrl.replace("\"", "\\\"") + "\"}";
-            conn.getOutputStream().write(body.getBytes("UTF-8"));
+            try (OutputStream os = conn.getOutputStream()) {
+                os.write(body.getBytes("UTF-8"));
+            }
 
             int code = conn.getResponseCode();
             if (code != 200) return null;
@@ -151,7 +154,11 @@ public class ReelsDownloaderActivity extends AppCompatActivity {
             if (m.find()) {
                 return m.group(1).replace("\\/", "/").replace("\\u0026", "&");
             }
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        } finally {
+            // Release the socket even on early returns / exceptions.
+            if (conn != null) conn.disconnect();
+        }
         return null;
     }
 
