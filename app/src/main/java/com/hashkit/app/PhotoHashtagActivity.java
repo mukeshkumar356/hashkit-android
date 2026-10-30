@@ -36,6 +36,7 @@ public class PhotoHashtagActivity extends AppCompatActivity {
         R.id.cat_business, R.id.cat_motivation, R.id.cat_reels,
         R.id.cat_photography, R.id.cat_art, R.id.cat_lifestyle
     };
+    private static final int MAX_ANALYZE_SIDE = 1024;
     private static final String[] CAT_KEYS = {
         "food","travel","fashion","fitness","nature","beauty",
         "business","motivation","reels","photography","art","lifestyle"
@@ -113,12 +114,8 @@ public class PhotoHashtagActivity extends AppCompatActivity {
         // Load bitmap from actual URI — fixes the "same result" bug
         Bitmap bitmap;
         try {
-            InputStream is = getContentResolver().openInputStream(imageUri);
-            BitmapFactory.Options opts = new BitmapFactory.Options();
-            opts.inSampleSize = 2; // downsample for speed
-            bitmap = BitmapFactory.decodeStream(is, null, opts);
-            if (is != null) is.close();
-        } catch (Exception e) {
+            bitmap = decodeScaledBitmap(imageUri);
+        } catch (Exception | OutOfMemoryError e) {
             loader.setVisibility(View.GONE);
             btnAnalyze.setEnabled(true);
             Toast.makeText(this, "Cannot load image", Toast.LENGTH_SHORT).show();
@@ -159,6 +156,30 @@ public class PhotoHashtagActivity extends AppCompatActivity {
             // A new labeler is created on every analysis; release its native
             // ML Kit resources once the task finishes instead of leaking them.
             .addOnCompleteListener(task -> labeler.close());
+    }
+
+    // ML Kit's default labeler works on small inputs, so decode at a size
+    // proportional to the image instead of a fixed 1/2 downsample, which
+    // runs out of memory on high-resolution camera photos.
+    private Bitmap decodeScaledBitmap(Uri uri) throws java.io.IOException {
+        BitmapFactory.Options bounds = new BitmapFactory.Options();
+        bounds.inJustDecodeBounds = true;
+        try (InputStream is = getContentResolver().openInputStream(uri)) {
+            if (is == null) return null;
+            BitmapFactory.decodeStream(is, null, bounds);
+        }
+
+        int sample = 1;
+        while (Math.max(bounds.outWidth, bounds.outHeight) / (sample * 2) >= MAX_ANALYZE_SIDE) {
+            sample *= 2;
+        }
+
+        BitmapFactory.Options opts = new BitmapFactory.Options();
+        opts.inSampleSize = sample;
+        try (InputStream is = getContentResolver().openInputStream(uri)) {
+            if (is == null) return null;
+            return BitmapFactory.decodeStream(is, null, opts);
+        }
     }
 
     private void processLabels(List<ImageLabel> labels) {
