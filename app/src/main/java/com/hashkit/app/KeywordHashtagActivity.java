@@ -69,7 +69,17 @@ public class KeywordHashtagActivity extends AppCompatActivity {
 
     private void generate(String input) {
         // Handle multiple keywords separated by comma
-        String[] keywords = input.split(",");
+        // (skip blank entries, e.g. input like "," or "a,,b")
+        List<String> keywordList = new ArrayList<>();
+        for (String part : input.split(",")) {
+            String trimmed = part.trim();
+            if (!trimmed.isEmpty()) keywordList.add(trimmed);
+        }
+        if (keywordList.isEmpty()) {
+            Toast.makeText(this, "Enter at least one keyword", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        String[] keywords = keywordList.toArray(new String[0]);
         Set<String> allTags = new LinkedHashSet<>();
 
         for (String kw : keywords) {
